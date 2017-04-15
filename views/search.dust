@@ -1,0 +1,35 @@
+{>"layout" /}
+
+{<body}    
+    <div class="row">
+        <h3 class="header">{category} Dishes</h3>
+    </div>
+
+    <div class="row restaurant-menu-body-div v-scroll">
+            {#menu}
+               {#value}
+                    <ul class="accordion" data-accordion data-allow-all-closed="true">
+                        <li class="accordion-item" data-accordion-item>
+                            <a href="#{_id}" class="accordion-title"><h4>{title}</h4></a>
+                            <div id="{_id}" class="accordion-content" data-tab-content>      
+                                <div class="row">
+                                    <div class="card left-floater" style="width:45%; padding:5px; margin:5px;">
+                                          <div class="card-section">
+                                            <p>{description}</p>
+                                          </div>
+                                          <img src="/{source}" class="thumbnail item">
+                                    </div>
+
+                                    <div class="right-floater" style="width:45%; padding:5px; margin:5px;">
+                                        <span class="label">{category}</span>
+                                        <span class="label">{duration}</span>
+                                        <p>{ingredients}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                {/value}
+            {/menu}
+    </div>
+{/body}

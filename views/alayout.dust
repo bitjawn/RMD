@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{pageTitle}</title>
+        <script src="https://use.fontawesome.com/fc14e58e15.js"></script>
+        <link rel='stylesheet' href='/css/app.css' />
+        <link rel="stylesheet" href="/css/foundation.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/icons/foundation-icons.css">
+    </head>
+    <body>
+        <script src="/js/vendor/jquery.js"></script>
+        <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+
+        <div class="top-bar" id="main-menu">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" data-responsive-menu="drilldown medium-dropdown">
+                    <li class="menu-text">Adminstrate</li>
+                    <li>
+                        <a href="/">Browse</a>
+                        <ul class="menu vertical">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <li>
+                            <a href="/menu">Menu</a>
+                            <ul class="menu vertical">
+                                <li><a href="#" class="category" data-category="breakfast">Breakfast</a></li>
+                                <li><a href="#" class="category" data-category="lunch">Lunch</a></li>
+                                <li><a href="#" class="category" data-category="dinner">Dinner</a></li>
+                            </ul>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+               
+            </div>
+        </div>
+            {+body/}
+    </body>
+        <script src="/js/vendor/what-input.js"></script>
+        <script src="/js/vendor/foundation.js"></script>
+        <script src="/js/resources.js"></script>
+        <script src="/js/app.js"></script>
+</html>

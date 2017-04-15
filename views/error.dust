@@ -1,0 +1,20 @@
+{>"layout" /}
+
+{<body}
+    <div class="row contact-us">
+        <h3 class="header">Error</h3>
+    </div>
+
+    <div class="row main-body v-scroll">
+        <div class="left-floater main-div border">
+            <p>
+                {error}
+            </p>
+        </div>
+        <div class="right-floater main-div border">
+            <p>
+                Soooooh {message}
+            </p>
+        </div>
+    </div>
+{/body}

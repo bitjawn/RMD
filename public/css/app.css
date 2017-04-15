@@ -1,0 +1,122 @@
+/* Global */
+.main-body {
+    border:solid 1pt rgb(112,101,100);
+    margin-top:10px;
+    height: 81vh;
+}
+
+.main-div {
+    padding:5px;
+    margin:10px;
+}
+
+.main-para {
+    padding:3px;
+}
+
+.header {
+    text-align:center;
+}
+
+.border {
+    border:solid 1pt rgb(212,221,200);
+}
+
+.left-floater,
+.right-floater {
+    width:45%;
+}
+
+.left-floater {
+    float:left;
+}
+
+.right-floater {
+    float:right;
+}
+
+.thumbnail {
+    width:555px;
+    height:355px;
+    padding:0;
+    margin:0;
+}
+
+.item {
+    width:555px;
+    height:355px;
+    padding:0;
+    margin:0;
+}
+
+.restaurant-menu-body-div {    
+    /* border:solid 1pt rgb(112,101,100); */
+    height:75vh;
+}
+
+.restaurant-menu-div {
+   /*  margin:10px;
+    padding:10px; */
+    margin-top:10px;
+}
+
+.label {
+    font-weight:900;
+    padding:10px;
+    margin:10px;
+}
+
+.accordion-content p {
+    font-weight:900;
+    font-size: 14pt;
+}
+
+
+
+ul {
+    margin-left:10px;
+}
+
+iframe {
+    width: 100%;
+}
+
+/*Scrollbar 
+*/
+.v-scroll {
+	overflow:scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+@media screen and (max-width: 520px) {
+    .left-floater,
+    .right-floater {
+            float:none;
+            text-align: center;
+        }
+
+    .left-floater,
+    .right-floater {
+            margin:auto;
+            text-align:center;
+            width:100%;
+        }
+
+    .thumbnail {
+            width:100%;
+            height:100%;
+        }
+    
+    .map-div {
+            width:100%;
+            height:25;
+        }
+}

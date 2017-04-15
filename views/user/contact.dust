@@ -1,0 +1,45 @@
+{>"layout" /}
+
+{<body}
+    <div class="row contact-us">
+        <h3 class="header">Contact Us</h3>
+    </div>
+
+    <div class="row main-body v-scroll">
+        <div class="left-floater main-div border">
+            <p>Send a message</p>
+                    <form class="form">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="name"><strong>Name</strong></label>  
+                                    <br>
+                                    <input type="text" id="name" name="name" placeholder="Name" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="subject"><strong>Subject</strong></label>  
+                                    <br>
+                                    <input type="text" name="subject" placeholder="Subject">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="message"><strong>Message</strong></label>  
+                                    <br>
+                                    <textarea name="message" placeholder="Message" required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="Submit" class="w3-button w3-round"></td>
+                            </tr>
+                        </table>
+                    </form>
+        </div>
+        <div class="right-floater main-div border map-div">
+            <p>Choose a route</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24468.765069311994!2d-75.17773107236881!3d39.95043378299701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c62f36fbe869%3A0xa436e1d13cf7c05b!2sCenter+City%2C+Philadelphia%2C+PA!5e0!3m2!1sen!2sus!4v1491766389207" width="600" height="450" frameborder="0" style="border:0" class="map" allowfullscreen></iframe>
+        </div>
+    </div>
+{/body}
