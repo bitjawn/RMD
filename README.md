@@ -28,6 +28,7 @@
       "description": String,
       "source": String
     }
+
  MongoDB
     ## Admin User Model
     {
@@ -35,6 +36,7 @@
         password: String,
         admin: Boolean
     }
+
  npm install --global nodemon
  
 # Run App
