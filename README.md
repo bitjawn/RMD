@@ -25,7 +25,7 @@
       "category": String,
       "duration": String
       "ingredients": String,
-      "description":  String,
+      "description": String,
       "source": String
     }
  MongoDB
