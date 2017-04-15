@@ -33,6 +33,7 @@
     ## Admin User Model
     {
         username: String,
+        email: String,
         password: String,
         admin: Boolean
     }
