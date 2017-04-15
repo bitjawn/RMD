@@ -1,5 +1,5 @@
 # Restaurant Menu Demo
-<h3>A Node/Express web application template, using Foundation front end and CouchDB back end.</h3>
+<h3>A Node/Express web application, using Foundation front end. Browse a restaurant's menu</h3>
 <ul>
     <li>Express: 4.14.0</li>
     <li>Foundation: 6.3.1</li>
@@ -17,7 +17,24 @@
 
 # External Dependencies
  CouchDB
+    ## Menu Model
+    {
+      "_id": String,
+      "_rev": String,
+      "title": String,
+      "category": String,
+      "duration": String
+      "ingredients": String,
+      "description":  String,
+      "source": String
+    }
  MongoDB
+    ## Admin User Model
+    {
+        username: String,
+        password: String,
+        admin: Boolean
+    }
  npm install --global nodemon
  
 # Run App
