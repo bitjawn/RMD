@@ -49,7 +49,7 @@ router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     var id = req.body.id;
     var rev = req.body.rev;
     
-    //*
+    /*
     console.log('ID:\t%s', id);
     console.log('Rev:\t%s', rev);
     console.log('Title:\t%s', title);
@@ -57,22 +57,22 @@ router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     console.log('Duration:\t%s', duration);
     console.log('Description:\t%s', description);
     console.log('Ingredients:\t%s', ingredients);
-    console.log('Image Path:\t%s', source);//*/
-    // couch.update(dbName, {
-        // _id:id,
-        // _rev:rev,
-        // title:title,
-        // category:category,
-        // description:description,
-        // duration:duration,
-        // ingredients:ingredients,
-        // source:source
-    // }).then(({data, headers, status}) => {
-        // res.redirect('/admin/profile');
-    // }, err => {
-        // console.log(err);
-    // });    
-    res.redirect('/admin/profile');
+    console.log('Image Path:\t%s', source);
+    res.redirect('/admin/profile');//*/
+    couch.update(dbName, {
+        _id:id,
+        _rev:rev,
+        title:title,
+        category:category,
+        description:description,
+        duration:duration,
+        ingredients:ingredients,
+        source:source
+    }).then(({data, headers, status}) => {
+        res.redirect('/admin/profile');
+    }, err => {
+        console.log(err);
+    });    
 });
 
 // search view
