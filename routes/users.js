@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var NodeCouchDb = require('node-couchdb');
@@ -5,8 +6,8 @@ var cfc = require('../modules/cfc');
 
 const couch = new NodeCouchDb({
     auth: {
-        user:'rickmin',
-        password:'01234'
+        user:process.env.DB_USER,
+        password:process.env.DB_PASSWORD
     }
 });
 

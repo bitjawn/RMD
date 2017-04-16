@@ -20,6 +20,21 @@
     font-weight:1000;
 }
 
+.contact {
+   /*  background-image: url("/graphics/background4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; */
+    /* background-position: 50px 100px;  */
+    position: absolute;
+    left: 25%;
+    top: 15%;
+    width: 40%;
+    opacity: 0.09;
+    z-index: -1;
+    font-weight:1000;
+}
+
 .main-div {
     padding:5px;
     margin:10px;
