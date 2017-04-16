@@ -29,12 +29,30 @@ router.get('/profile', isLoggedIn, csrfProtection, function(req, res, next){
             res.render('admin/profile', {
                 menu:data.data.rows,
                 pageTitle:cfc('Admin'),
-                greet:greet
+                greet:greet,
+                csrfToken: req.csrfToken(),
+                isAdmin:true
             });            
         },
         function(err){
             res.send(err);
     });
+});
+
+router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
+    var title = req.body.title;
+    var category = req.body.category;
+    var duration = req.body.duration;
+    var description = req.body.description;
+    var ingredients = req.body.ingredients;
+
+    console.log('Title:\t%s', title);
+    console.log('Category:\t%s', category);
+    console.log('Duration:\t%s', duration);
+    console.log('Description:\t%s', description);
+    console.log('Ingredients:\t%s', ingredients);
+
+    res.redirect('/admin/profile');
 });
 
 // search view

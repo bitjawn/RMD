@@ -14,7 +14,7 @@
                             <div class="row card">
                                 <img src="/{source}" class="thumbnail left-floater">
                                 <div class="card-section right-floater">
-                                    <form class="admin-add-item-form">
+                                    <form class="admin-add-item-form" method="post" action="/admin/update-item">
                                         <div class="input-group">
                                             <span class="input-group-label">
                                                 <i class="fa fa-edit" aria-hidden="true"> Title</i>
@@ -52,6 +52,8 @@
 
                                         <input class="input-group-field" type="hidden" name="admin" value="{isAdmin}" required>
                                         <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
+                                        <input class="input-group-field" type="hidden" name="id" value="{_id}" required>
+                                        <input class="input-group-field" type="hidden" name="rev" value="{rev}" required>
 
                                         <div class="input-group-button">
                                             <input type="submit" class="button" value="Submit">
