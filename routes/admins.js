@@ -86,7 +86,34 @@ router.delete('/delete/:id', isLoggedIn, function(req, res){
         res.sendStatus(200);
     }, err => {
         console.log(err);
-    }); */
+    }); //*/
+});
+
+// add
+router.post('/add', isLoggedIn, function(req, res){
+	var title = req.body.title;
+    var category = req.body.category;
+    var duration = req.body.duration;
+    var description = req.body.description;
+    var ingredients = req.body.ingredients;
+    var source = req.body.source;
+    couch.uniqid().then(function(ids){
+        const id = ids[0];        
+        couch.insert(dbName, {
+        _id:id,
+        title:title,
+        category:category,
+        description:description,
+        duration:duration,
+        ingredients:ingredients,
+        source:source
+        }).then(function(data, headers, status){
+            res.redirect('/admin/profile');
+        },
+        function(err){
+            console.log(err);
+        });
+    });
 });
 
 // search view
