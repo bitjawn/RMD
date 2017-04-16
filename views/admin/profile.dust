@@ -64,7 +64,7 @@
 
                                         <div class="input-group-button clearfix">
                                             <input type="submit" class="button primary  editor-form-button-left-floater" value="Update">
-                                            <input type="button" class="button alert remove-item  editor-form-button-right-floater" value="Remove">
+                                            <input type="button" class="button alert remove-item  editor-form-button-right-floater" data-id="{id}" data-rev="{rev}" value="Remove">
                                         </div>
                                     </form>
                                 </div>
