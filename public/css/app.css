@@ -57,6 +57,27 @@
     width:45%;
 }
 
+.editor-form-button-left-floater,
+.editor-form-button-right-floater {
+   
+}
+
+.editor-form-button-left-floater {
+    float:left;
+    margin:6px;
+    padding:4px;
+    text-align:center;
+    font-weight:866;
+}
+
+.editor-form-button-right-floater {
+    float:right;
+    margin:6px;
+    padding:4px;
+    text-align:center;
+    font-weight:866;
+}
+
 .left-floater {
     float:left;
 }
@@ -139,6 +160,7 @@ ul {
 iframe {
     width: 100%;
 }
+
 
 /*Scrollbar 
 */
