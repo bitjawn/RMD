@@ -39,6 +39,7 @@ router.get('/profile', isLoggedIn, csrfProtection, function(req, res, next){
     });
 });
 
+// update
 router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     var title = req.body.title;
     var category = req.body.category;
