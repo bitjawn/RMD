@@ -133,6 +133,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 },
                 function(err){
                     res.send(err);
+                    res.redirect('/admin/profile');
             });
             break;
 
@@ -148,6 +149,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 },
                 function(err){
                     res.send(err);
+                    res.redirect('/admin/profile');
             });
             break;
 
@@ -163,6 +165,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 },
                 function(err){
                     res.send(err);
+                    res.redirect('/admin/profile');
             });
             break;
     }
@@ -199,6 +202,7 @@ router.get('/search/:id', isLoggedIn, csrfProtection, function(req, res, next){
         res.render('admin/searched', {results:data, pageTitle:'Record', admin:true, csrfToken:req.csrfToken()});
     }, err => {
         console.log(err);
+        res.redirect('/admin/profile');
     });
 });
 
