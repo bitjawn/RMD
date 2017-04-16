@@ -117,17 +117,18 @@ router.post('/add', isLoggedIn, function(req, res){
 });
 
 // search by category
-router.get('/search/:category', isLoggedIn, function(req, res) {
+router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
     var category = req.params.category;
 
     switch (category.toLowerCase()) {
         case 'breakfast':
             couch.get(dbName, queryBreakfast).then(
                 function(data, headers, status) { 
-                    res.render('admin/search', {
-                        menu:data.data.rows,
+                    res.render('admin/searched', {
+                        results:data.data.rows,
                         category:cfc(category),
-                        pageTitle:cfc('Menu')
+                        pageTitle:cfc('Menu'),
+                        csrfToken: req.csrfToken(),
                     });            
                 },
                 function(err){
@@ -138,10 +139,11 @@ router.get('/search/:category', isLoggedIn, function(req, res) {
         case 'lunch':
             couch.get(dbName, queryLunch).then(
                 function(data, headers, status) {  
-                    res.render('admin/search', {
-                        menu:data.data.rows,
+                    res.render('admin/searched', {
+                        results:data.data.rows,
                         category:cfc(category),
-                        pageTitle:cfc('Menu')
+                        pageTitle:cfc('Menu'),
+                        csrfToken: req.csrfToken(),
                     });            
                 },
                 function(err){
@@ -152,10 +154,11 @@ router.get('/search/:category', isLoggedIn, function(req, res) {
         case 'dinner':
             couch.get(dbName, queryDinner).then(
                 function(data, headers, status) {  
-                    res.render('admin/search', {
-                        menu:data.data.rows,
+                    res.render('admin/searched', {
+                        results:data.data.rows,
                         category:cfc(category),
-                        pageTitle:cfc('Menu')
+                        pageTitle:cfc('Menu'),
+                        csrfToken: req.csrfToken(),
                     });            
                 },
                 function(err){
@@ -166,7 +169,7 @@ router.get('/search/:category', isLoggedIn, function(req, res) {
 });
 
 // search default
-router.post('/search', isLoggedIn, function(req, res){
+router.post('/search', isLoggedIn, csrfProtection, function(req, res){
     const keyword = req.body.keyword;
     const results = [];
     couch.get(dbName, viewUrl).then(
@@ -180,7 +183,7 @@ router.post('/search', isLoggedIn, function(req, res){
                }
        }       
        if (results.length > 0) {
-           res.render('searched',{results:results,pageTitle:'Search Results'});
+           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken()});
        } else {
            res.redirect('/admin/profile');
        }
@@ -191,9 +194,9 @@ router.post('/search', isLoggedIn, function(req, res){
 });
 
 // search by id
-router.get('/search/:id', isLoggedIn, function(req, res, next){
+router.get('/search/:id', isLoggedIn, csrfProtection, function(req, res, next){
      couch.get(dbName,req.params.id).then(({data, headers, status}) => {
-        res.render('user/account', {record:data, pageTitle:'Record', admin:true});
+        res.render('admin/searched', {results:data, pageTitle:'Record', admin:true, csrfToken:req.csrfToken()});
     }, err => {
         console.log(err);
     });
