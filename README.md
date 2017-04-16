@@ -11,7 +11,7 @@
 
 ```bash
 # Installation
- -I clone https://github.com/bitjawn/RestaurantMenu.git or download the zip
+ - clone https://github.com/bitjawn/RestaurantMenu.git or download the zip
  
  npm install
 
