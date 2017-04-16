@@ -7,7 +7,7 @@
 
     <div class="row main-body v-scroll">
         <div class="left-floater main-div border">
-            <p>Send a message</p>
+            <h4>Send a message</h4>
                     <form class="form">
                         <table>
                             <tr>
