@@ -101,8 +101,7 @@
     font-size: 14pt;
 }
 
-.server-message>li,
-.logout>li {
+.server-message>li {
     list-style-type: none;
     margin:5px;
     padding:0;
@@ -111,6 +110,13 @@
     color:rgb(200,150,150);
     font-weight:900;
     font-size:15pt;    
+}
+
+.logout  {
+    list-style-type: none;
+    margin:5px;
+    padding:0;
+    display:inline;
 }
 
 .server-message {    
