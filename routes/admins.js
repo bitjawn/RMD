@@ -117,7 +117,7 @@ router.post('/add', isLoggedIn, function(req, res){
 });
 
 // search by category
-router.get('/search/:category', function(req, res) {
+router.get('/search/:category', isLoggedIn, function(req, res) {
     var category = req.params.category;
 
     switch (category.toLowerCase()) {
@@ -190,7 +190,7 @@ router.post('/search', isLoggedIn, function(req, res){
     });    
 });
 
-// Find by ID
+// search by id
 router.get('/search/:id', isLoggedIn, function(req, res, next){
      couch.get(dbName,req.params.id).then(({data, headers, status}) => {
         res.render('user/account', {record:data, pageTitle:'Record', admin:true});
@@ -199,7 +199,7 @@ router.get('/search/:id', isLoggedIn, function(req, res, next){
     });
 });
 
-// Logout
+// logout
 router.get('/logout', csrfProtection, function(req, res, next){
     req.logout();
     res.redirect('/admin/signin');
@@ -209,7 +209,7 @@ router.use('/', notLoggedIn, function(req, res, next){
     next();
 });
 
-// Register
+// register
 router.get('/signup', csrfProtection, function(req, res, next){		
     var messages = req.flash('error');		
     res.render('admin/signup', {title:'Registration', csrfToken: req.csrfToken(), messages:messages, hasErrors: messages.length > 0, isAdmin:true, admin:true});
