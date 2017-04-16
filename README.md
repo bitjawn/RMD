@@ -4,7 +4,7 @@
     <li>Express: 4.14.0</li>
     <li>Foundation: 6.3.1</li>
     <li>View Engine: Dust</li>
-    <li><b>Menu DB: <a href="http://couchdb.apache.org/"><i>Apache CouchDB</a></b></li>
+    <li><b>Menu DB: <a href="http://couchdb.apache.org/"><i>Apache CouchDB</i></a></b></li>
     <li><b>Admin DB: <a href="https://www.mongodb.com/download-center?jmp=docs&_ga=1.202993809.1491474904.1492296757#community"><i>MongoDB</i></a></b></li>
 </ul>
 <h3>Instructions</h3>
