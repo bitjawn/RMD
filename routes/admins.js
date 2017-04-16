@@ -76,6 +76,19 @@ router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     });    
 });
 
+// delete
+router.delete('/delete/:id', isLoggedIn, function(req, res){
+	var id = new String(req.params.id).split(':')[0];
+    var rev = new String(req.params.id).split(':')[1];
+    console.log('Deleting id: ' + id + '\trev: ' + rev);
+    res.sendStatus(200);
+    /*couch.del(dbName, id, rev).then(({data, headers, status}) => {        
+        res.sendStatus(200);
+    }, err => {
+        console.log(err);
+    }); */
+});
+
 // search view
 router.get('/search/:category', function(req, res) {
     var category = req.params.category;
