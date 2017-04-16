@@ -101,6 +101,20 @@
     font-size: 14pt;
 }
 
+.server-message>li {
+    list-style-type: none;
+    margin:5px;
+    padding:0;
+    display:inline;
+    margin:10px;
+    color:rgb(200,150,150);
+    font-weight:900;
+    font-size:15pt;    
+}
+
+.server-message {    
+    text-align:center;
+}
 
 
 ul {

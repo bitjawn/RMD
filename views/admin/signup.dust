@@ -1,9 +1,9 @@
 {>"alayout" /}
 
 {<body}
-    <ul>
-            {#messages}
-                <li>{.}</li>
+    <ul class="server-message">
+            {?messages}
+                <li>{messages}</li>
             {/messages}
         </ul>
   <div class="row contact-us">

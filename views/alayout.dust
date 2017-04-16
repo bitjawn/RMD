@@ -39,7 +39,11 @@
                 </ul>
             </div>
             <div class="top-bar-right">
-               
+                {?login}
+                    <ul>
+                        <li><a href="/logout">Sign-Out</a></li>
+                    </ul>
+                {/login}
             </div>
         </div>
             {+body/}
