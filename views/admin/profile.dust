@@ -6,11 +6,63 @@
     </div>
 
     <div class="row main-body v-scroll">
-        <div class="left-floater main-div border">
-          
-        </div>
-        <div class="right-floater main-div border">
-            
-        </div>
+        <!-- <div class="center-floater main-div border"> -->
+            {?menu}
+                {#menu}
+                    {#value}
+                        <div class="column">
+                            <div class="row card">
+                                <img src="/{source}" class="thumbnail left-floater">
+                                <div class="card-section right-floater">
+                                    <form class="admin-add-item-form">
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Title</i>
+                                            </span>
+                                            <input type="text" value="{title}" class="input-group-field" name="title" required>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Category</i>
+                                            </span>
+                                            <input type="text" value="{category}" class="input-group-field" name="category" required>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Hours</i>
+                                            </span>
+                                            <input type="text" value="{duration}" class="input-group-field" name="duration" required>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Description</i>
+                                            </span>
+                                            <textarea class="input-group-field" name="description" required>{description}</textarea>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Ingredients</i>
+                                            </span>
+                                            <textarea class="input-group-field" name="ingredients" required>{ingredients}</textarea>
+                                        </div>
+
+                                        <input class="input-group-field" type="hidden" name="admin" value="{isAdmin}" required>
+                                        <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
+
+                                        <div class="input-group-button">
+                                            <input type="submit" class="button" value="Submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {/value}
+                {/menu}
+            {/menu}
+        <!-- </div> -->
     </div>
 {/body}

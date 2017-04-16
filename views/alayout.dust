@@ -49,6 +49,11 @@
                     <ul class=" dropdown menu logout">
                         <li><a href="/admin/logout">Sign-Out</a></li>
                         <li><a href="#" data-toggle="offCanvas">Add Item</a></li>
+                        <li>
+                            <ul>
+
+                            </ul>
+                        </li>
                     </ul>
                 {/login}
             </div>

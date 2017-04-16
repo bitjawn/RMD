@@ -61,6 +61,10 @@
     float:left;
 }
 
+.center-floater {
+    float:center;
+}
+
 .right-floater {
     float:right;
 }
