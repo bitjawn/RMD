@@ -1,7 +1,7 @@
 {>"alayout" /}
 
 {<body}
-    <ul class="server-message">
+    <ul class="server-message lead">
             {?messages}
                 <li>{messages}</li>
             {/messages}

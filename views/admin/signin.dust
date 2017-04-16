@@ -1,7 +1,7 @@
 {>"alayout" /}
 
 {<body}
-    <ul class="server-message">
+    <ul class="server-message lead">
             {?messages}
                 <li>{messages}</li>
             {/messages}
@@ -22,14 +22,14 @@
                     <span class="input-group-label">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
-                    <input class="input-group-field" type="text" id="uname" placeholder=" Enter your email or  user-name" required>
+                    <input class="input-group-field" type="text" name="email" placeholder=" Enter your email or  user-name" required>
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-label">
                         <i class="fa fa-unlock" aria-hidden="true"></i>
                     </span>
-                    <input class="input-group-field" type="password" id="password" placeholder=" Enter your password" required>
+                    <input class="input-group-field" type="password" name="password" placeholder=" Enter your password" required>
                 </div>
                 
                 <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
