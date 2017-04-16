@@ -1,5 +1,5 @@
 # Restaurant Menu Demo
-<h3>A Node/Express web application, using Foundation front end. Browse a restaurant's menu</h3>
+<h3>A Node/Express web application, using Foundation front end. Browsing a restaurant's menu.</h3>
 <ul>
     <li>Express: 4.14.0</li>
     <li>Foundation: 6.3.1</li>
