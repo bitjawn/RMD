@@ -116,7 +116,7 @@ router.post('/add', isLoggedIn, function(req, res){
     });
 });
 
-// search view
+// search by category
 router.get('/search/:category', function(req, res) {
     var category = req.params.category;
 
@@ -124,7 +124,7 @@ router.get('/search/:category', function(req, res) {
         case 'breakfast':
             couch.get(dbName, queryBreakfast).then(
                 function(data, headers, status) { 
-                    res.render('search', {
+                    res.render('admin/search', {
                         menu:data.data.rows,
                         category:cfc(category),
                         pageTitle:cfc('Menu')
@@ -138,7 +138,7 @@ router.get('/search/:category', function(req, res) {
         case 'lunch':
             couch.get(dbName, queryLunch).then(
                 function(data, headers, status) {  
-                    res.render('search', {
+                    res.render('admin/search', {
                         menu:data.data.rows,
                         category:cfc(category),
                         pageTitle:cfc('Menu')
@@ -152,7 +152,7 @@ router.get('/search/:category', function(req, res) {
         case 'dinner':
             couch.get(dbName, queryDinner).then(
                 function(data, headers, status) {  
-                    res.render('search', {
+                    res.render('admin/search', {
                         menu:data.data.rows,
                         category:cfc(category),
                         pageTitle:cfc('Menu')
@@ -165,6 +165,41 @@ router.get('/search/:category', function(req, res) {
     }
 });
 
+// search default
+router.post('/search', isLoggedIn, function(req, res){
+    const keyword = req.body.keyword;
+    const results = [];
+    couch.get(dbName, viewUrl).then(
+    function(data, headers, status) {
+       for (var d in data.data.rows) {
+           var record = data.data.rows[d];
+           if (record.value.title.trim().toLowerCase() === keyword.trim().toLowerCase() ||
+               record.value._id.trim().toLowerCase() === keyword.trim().toLowerCase() ||
+               record.value.description.trim().toLowerCase() === keyword.trim().toLowerCase()) {
+                   results.push(record);
+               }
+       }       
+       if (results.length > 0) {
+           res.render('searched',{results:results,pageTitle:'Search Results'});
+       } else {
+           res.redirect('/admin/profile');
+       }
+    },
+    function(err){
+        res.send(err);
+    });    
+});
+
+// Find by ID
+router.get('/search/:id', isLoggedIn, function(req, res, next){
+     couch.get(dbName,req.params.id).then(({data, headers, status}) => {
+        res.render('user/account', {record:data, pageTitle:'Record', admin:true});
+    }, err => {
+        console.log(err);
+    });
+});
+
+// Logout
 router.get('/logout', csrfProtection, function(req, res, next){
     req.logout();
     res.redirect('/admin/signin');
@@ -174,6 +209,7 @@ router.use('/', notLoggedIn, function(req, res, next){
     next();
 });
 
+// Register
 router.get('/signup', csrfProtection, function(req, res, next){		
     var messages = req.flash('error');		
     res.render('admin/signup', {title:'Registration', csrfToken: req.csrfToken(), messages:messages, hasErrors: messages.length > 0, isAdmin:true, admin:true});
@@ -185,6 +221,7 @@ router.post('/signup', csrfProtection, passport.authenticate('local.admin.signup
     failureFlash: true		
 }));//*/
 
+// sign in
 router.get('/signin', csrfProtection, function(req, res, next){
     var messages = req.flash('error');
     res.render('admin/signin', {title:'Sign In', csrfToken: req.csrfToken(), messages:messages, hasErrors: messages.length > 0, isAdmin:true, admin:true});
