@@ -23,6 +23,20 @@ $(document)
         });
     });
     
+    $('.remove-item').on('click', function(){
+        var id = $(this).data('id');
+        var rev = $(this).data('rev');
+        var args = id + ':' + rev;
+        var csrf = $(this).data('csrf');
+        var url = '/admin/delete/' + args;
+        $.ajax({
+            url:url,
+            data:{_csrf:csrf},
+            type:'DELETE',
+            success:function(data){window.location.href=url;},
+            error:function(err) {console.log(err);}
+        });
+    });
 })
 .foundation()
 
