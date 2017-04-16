@@ -45,7 +45,11 @@ router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     var duration = req.body.duration;
     var description = req.body.description;
     var ingredients = req.body.ingredients;
+    var id = req.body.id;
+    var rev = req.body.rev;
 
+    console.log('ID:\t%s', id);
+    console.log('Rev:\t%s', rev);
     console.log('Title:\t%s', title);
     console.log('Category:\t%s', category);
     console.log('Duration:\t%s', duration);

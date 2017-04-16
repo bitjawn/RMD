@@ -52,7 +52,7 @@
 
                                         <input class="input-group-field" type="hidden" name="admin" value="{isAdmin}" required>
                                         <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
-                                        <input class="input-group-field" type="hidden" name="id" value="{_id}" required>
+                                        <input class="input-group-field" type="hidden" name="id" value="{id}" required>
                                         <input class="input-group-field" type="hidden" name="rev" value="{rev}" required>
 
                                         <div class="input-group-button">
