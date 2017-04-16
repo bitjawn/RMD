@@ -3,11 +3,11 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 var csrfProtection = csrf();
+var cfc = require('../modules/cfc');
 
 router.get('/profile', isLoggedIn, csrfProtection, function(req, res, next){       
-    const greet = 'Greetings ' + req.user.fname;
-    const user = req.user;
-    res.render('admin/profile', {pageTitle:'Admin', user:user, greet:greet});
+    const greet = 'Greetings ' + cfc(req.user.fname);
+    res.render('admin/profile', {pageTitle:'Admin', greet:greet});
 });
 
 router.get('/logout', csrfProtection, function(req, res, next){

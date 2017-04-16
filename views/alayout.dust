@@ -17,7 +17,13 @@
         <div class="top-bar" id="main-menu">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-responsive-menu="drilldown medium-dropdown">
-                    <li class="menu-text">Administrate</li>
+                        {?login}
+                            {?greet}
+                                <li class="menu-text">{greet}</li>
+                            {/greet}
+                        {:else}
+                            <li class="menu-text">Administrate</li>                        
+                        {/login}
                     <li>
                         <a href="/">Browse</a>
                         <ul class="menu vertical">
