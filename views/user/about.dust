@@ -6,6 +6,7 @@
     </div>
 
     <div class="row main-body v-scroll">
+        <img src="graphics/background4.png" class="about">
         <div class="left-floater main-div border">
             <h4>Lorem ipsum dolor sit<div class="subheader">Amet aliquam faucibus ac</div></h4>
             <p>

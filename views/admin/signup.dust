@@ -40,6 +40,7 @@
             </div>
 
             <input class="input-group-field" type="hidden" id="admin" value="{isAdmin}" required>
+            <input class="input-group-field" type="hidden" id="_csrfToken" value="{csrfToken}" required>
 
             <div class="input-group-button">
                 <input type="submit" class="button" value="Submit">
