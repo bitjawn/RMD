@@ -50,6 +50,13 @@
                                             <textarea class="input-group-field" name="ingredients" required>{ingredients}</textarea>
                                         </div>
 
+                                        <div class="input-group">
+                                            <span class="input-group-label">
+                                                <i class="fa fa-edit" aria-hidden="true"> Image Source</i>
+                                            </span>
+                                            <input type="text" value="{source}" class="input-group-field" name="source" required>
+                                        </div>
+
                                         <input class="input-group-field" type="hidden" name="admin" value="{isAdmin}" required>
                                         <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
                                         <input class="input-group-field" type="hidden" name="id" value="{id}" required>
