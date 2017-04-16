@@ -29,13 +29,15 @@ $(document)
         var args = id + ':' + rev;
         var csrf = $(this).data('csrf');
         var url = '/admin/delete/' + args;
-        $.ajax({
-            url:url,
-            data:{_csrf:csrf},
-            type:'DELETE',
-            success:function(data){window.location.href=url;},
-            error:function(err) {console.log(err);}
-        });
+        if (confirm('Are you sure you want to delete item?')) {
+            $.ajax({
+                url:url,
+                data:{_csrf:csrf},
+                type:'DELETE',
+                success:function(data){window.location.href=url;},
+                error:function(err) {console.log(err);}
+            });
+        }
     });
 })
 .foundation()
