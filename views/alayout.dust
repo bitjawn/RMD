@@ -5,7 +5,6 @@
         <script src="https://use.fontawesome.com/fc14e58e15.js"></script>
         <link rel='stylesheet' href='/css/app.css' />
         <link rel="stylesheet" href="/css/foundation.css">
-        <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/icons/foundation-icons.css">
     </head>
     <body>
@@ -18,7 +17,7 @@
         <div class="top-bar" id="main-menu">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-responsive-menu="drilldown medium-dropdown">
-                    <li class="menu-text">Adminstrate</li>
+                    <li class="menu-text">Administrate</li>
                     <li>
                         <a href="/">Browse</a>
                         <ul class="menu vertical">

@@ -1,6 +1,11 @@
 {>"alayout" /}
 
 {<body}
+    <ul>
+            {#messages}
+                <li>{.}</li>
+            {/messages}
+        </ul>
   <div class="row contact-us">
         <h3 class="header">Register</h3>
     </div>
@@ -10,42 +15,49 @@
           
         </div>
         <div class="right-floater main-div border">
+            <form method="post" action="/admin/signup">
+                 <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <input class="input-group-field" type="text" name="fname" placeholder=" Enter first name" required>
+                </div>
 
-             <div class="input-group">
-                <span class="input-group-label">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </span>
-                <input class="input-group-field" type="text" id="uname" placeholder=" Choose a  user-name" required>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <input class="input-group-field" type="text" name="lname" placeholder=" Enter last name" required>
+                </div>
 
-            <div class="input-group">
-                <span class="input-group-label">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <input class="input-group-field" type="email" id="email" placeholder=" Enter email address" required>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                    <input class="input-group-field" type="email" name="email" placeholder=" Enter email address" required>
+                </div>
 
-            <div class="input-group">
-                <span class="input-group-label">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-                <input class="input-group-field" type="password" id="pwd" placeholder=" Create a password" required>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input class="input-group-field" type="password" name="password" placeholder=" Create a password" required>
+                </div>
 
-            <div class="input-group">
-                <span class="input-group-label">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-                <input class="input-group-field" type="password" id="pwd2" placeholder=" Confirm the password" required>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input class="input-group-field" type="password" name="password2" placeholder=" Confirm the password" required>
+                </div>
 
-            <input class="input-group-field" type="hidden" id="admin" value="{isAdmin}" required>
-            <input class="input-group-field" type="hidden" id="_csrfToken" value="{csrfToken}" required>
+                <input class="input-group-field" type="hidden" name="admin" value="{isAdmin}" required>
+                <input class="input-group-field" type="hidden" name="_csrf" value="{csrfToken}" required>
 
-            <div class="input-group-button">
-                <input type="submit" class="button" value="Submit">
-            </div>
-
+                <div class="input-group-button">
+                    <input type="submit" class="button" value="Submit">
+                </div>
+            </form>
         </div>
     </div>
 {/body}

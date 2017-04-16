@@ -119,6 +119,10 @@ passport.use('local.admin.signup', new LocalStrategy({
         if (!req.body.admin) {
             return done(null, false, {message: 'Invalid user.'});
         }
+
+        if (req.password != req.password2) {
+            return done(null, false, {message: "Passwords don't match!"});
+        }
         
         if (user) {
             return done(null, false, {message: 'User already exists'});
