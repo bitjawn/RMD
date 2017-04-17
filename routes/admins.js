@@ -116,65 +116,7 @@ router.post('/add', isLoggedIn, function(req, res){
     });
 });
 
-// search by category
-router.get('/search/:category', isLoggedIn, function(req, res) {
-    var category = req.params.category;
-
-    switch (category.toLowerCase()) {
-        case 'breakfast':
-            couch.get(dbName, queryBreakfast).then(
-                function(data, headers, status) { 
-                    res.render('admin/searched', {
-                        results:data.data.rows,
-                        header:cfc(category) + ' Results',
-                        pageTitle:cfc('Search'),
-                        csrfToken: req.csrfToken(),
-                        'category':true
-                    });            
-                },
-                function(err){
-                    res.send(err);
-                    res.redirect('/admin/profile');
-            });
-            break;
-
-        case 'lunch':
-            couch.get(dbName, queryLunch).then(
-                function(data, headers, status) {  
-                    res.render('admin/searched', {
-                        results:data.data.rows,
-                        header:cfc(category) + ' Results',
-                        pageTitle:cfc('Search'),
-                        csrfToken: req.csrfToken(),
-                        'category':true
-                    });            
-                },
-                function(err){
-                    res.send(err);
-                    res.redirect('/admin/profile');
-            });
-            break;
-
-        case 'dinner':
-            couch.get(dbName, queryDinner).then(
-                function(data, headers, status) {  
-                    res.render('admin/searched', {
-                        results:data.data.rows,
-                        header:cfc(category) + ' Results',
-                        pageTitle:cfc('Search'),
-                        csrfToken: req.csrfToken(),
-                        'category':true
-                    });            
-                },
-                function(err){
-                    res.send(err);
-                    res.redirect('/admin/profile');
-            });
-            break;
-    }
-});
-
-// search default
+// search
 router.post('/search', isLoggedIn, csrfProtection, function(req, res){
     const keyword = req.body.keyword;
     
@@ -215,16 +157,6 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
         console(err);
         res.redirect('/admin/profile');
     });  
-});
-
-// search by id
-router.get('/search/:id', isLoggedIn, function(req, res, next){
-     couch.get(dbName,req.params.id).then(({data, headers, status}) => {
-        res.render('admin/searched', {results:data, pageTitle:'Search', admin:true, csrfToken:req.csrfToken(), header:'Found record ' + data.title, 'id':true});
-    }, err => {
-        console.log(err);
-        res.redirect('/admin/profile');
-    });
 });
 
 // logout
