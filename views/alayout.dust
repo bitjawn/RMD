@@ -20,7 +20,9 @@
                         {?login}
                             {?greet}
                                 <li class="menu-text">{greet}</li>
-                            {/greet}
+                            {:else}
+                                <li class="menu-text">Greetings</li>  
+                            {/greet} 
                         {:else}
                             <li class="menu-text">Administrate</li>                        
                         {/login}
