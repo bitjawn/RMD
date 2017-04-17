@@ -117,7 +117,7 @@ router.post('/add', isLoggedIn, function(req, res){
 });
 
 // search by category
-router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
+router.get('/search/:category', isLoggedIn, function(req, res) {
     var category = req.params.category;
 
     switch (category.toLowerCase()) {
@@ -177,17 +177,24 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
 // search default
 router.post('/search', isLoggedIn, csrfProtection, function(req, res){
     const keyword = req.body.keyword;
+    
+    /*
+    console.log('Search Keyword: ' + keyword);
+    res.redirect('/admin/profile');//*/
+
+    //*
     const results = [];
     couch.get(dbName, viewUrl).then(
     function(data, headers, status) {
-       for (var d in data.data.rows) {
-           var record = data.data.rows[d];
-           if (record.value.title.trim().toLowerCase() === keyword.trim().toLowerCase() ||
-               record.value._id.trim().toLowerCase() === keyword.trim().toLowerCase() ||
-               record.value.description.trim().toLowerCase() === keyword.trim().toLowerCase()) {
-                   results.push(record);
-               }
-       }       
+        for (var d in data.data.rows) {
+            var record = data.data.rows[d].value;
+            if (record.title.toString().trim().toLowerCase() == keyword.trim().toLowerCase() ||
+                record.category.toString().trim().toLowerCase() == keyword.trim().toLowerCase() ||
+                record.description.toString().trim().toLowerCase() == keyword.trim().toLowerCase()) {
+                results.push(record);
+            }
+        }      
+
        if (results.length > 0) {
         var records = '';
         switch (results.length) {
@@ -207,11 +214,11 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
     function(err){
         console(err);
         res.redirect('/admin/profile');
-    });    
+    });  
 });
 
 // search by id
-router.get('/search/:id', isLoggedIn, csrfProtection, function(req, res, next){
+router.get('/search/:id', isLoggedIn, function(req, res, next){
      couch.get(dbName,req.params.id).then(({data, headers, status}) => {
         res.render('admin/searched', {results:data, pageTitle:'Search', admin:true, csrfToken:req.csrfToken(), header:'Found record ' + data.title, 'id':true});
     }, err => {
