@@ -104,8 +104,19 @@
     margin:0;
 }
 
-.add-item {
-    height:60vh;
+.new-item  {
+    position: absolute;
+    left: 18%;
+    top: 1%;
+    width: 80%;
+    opacity: 0.09;
+    z-index: -1;
+    font-weight:1000;
+}
+
+.reveal input,
+.reveal textarea {
+    background:transparent;
 }
 
 .restaurant-menu-body-div {    
