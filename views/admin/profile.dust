@@ -10,8 +10,10 @@
             {#menu}
                 {#value}
                     <div class="column">
-                        <div class="row card">
-                            <img src="/{source}" class="thumbnail left-floater">
+                        <div class="row card" style="margin:5px;">
+                            <div class="left-floater" style="margin:10px;">
+                                <img src="/{source}" class="thumbnail">
+                            </div>
                             <div class="card-section right-floater">
                                 <form class="admin-add-item-form" method="post" action="/admin/update-item">
                                     <div class="input-group">
