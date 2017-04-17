@@ -76,6 +76,43 @@ router.post('/update-item', isLoggedIn, csrfProtection, function(req, res){
     });    
 });
 
+// update from search view
+router.post('/search-update-item', isLoggedIn, function(req, res){
+    var title = req.body.title;
+    var category = req.body.category;
+    var duration = req.body.duration;
+    var description = req.body.description;
+    var ingredients = req.body.ingredients;
+    var source = req.body.source;
+    var id = req.body.id;
+    var rev = req.body.rev;
+    
+    /*
+    console.log('ID:\t%s', id);
+    console.log('Rev:\t%s', rev);
+    console.log('Title:\t%s', title);
+    console.log('Category:\t%s', category);
+    console.log('Duration:\t%s', duration);
+    console.log('Description:\t%s', description);
+    console.log('Ingredients:\t%s', ingredients);
+    console.log('Image Path:\t%s', source);
+    res.redirect('/admin/profile');//*/
+    couch.update(dbName, {
+        _id:id,
+        _rev:rev,
+        title:title,
+        category:category,
+        description:description,
+        duration:duration,
+        ingredients:ingredients,
+        source:source
+    }).then(({data, headers, status}) => {
+        res.redirect('/admin/profile');
+    }, err => {
+        console.log(err);
+    });    
+});
+
 // delete
 router.delete('/delete/:id', isLoggedIn, function(req, res){
 	var id = new String(req.params.id).split(':')[0];
@@ -117,7 +154,7 @@ router.post('/add', isLoggedIn, function(req, res){
 });
 
 // search
-router.post('/search', isLoggedIn, csrfProtection, function(req, res){
+router.post('/search', isLoggedIn, function(req, res){
     const keyword = req.body.keyword;
     
     /*
@@ -130,6 +167,9 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
     function(data, headers, status) {
         for (var d in data.data.rows) {
             var record = data.data.rows[d].value;
+            for (var r in record) {
+                console.log(r + ': ' + record[r]);
+            }
             if (record.title.toString().trim().toLowerCase() == keyword.trim().toLowerCase() ||
                 record.category.toString().trim().toLowerCase() == keyword.trim().toLowerCase() ||
                 record.description.toString().trim().toLowerCase() == keyword.trim().toLowerCase()) {
@@ -148,7 +188,7 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
                 records = 'Found ' + results.length + ' records';
                 break;
         }
-           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken(), header:records, 'default':true});
+           res.render('admin/searched',{results:results, pageTitle:'Search Results', header:records});
        } else {
            res.redirect('/admin/profile');
        }
