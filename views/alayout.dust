@@ -51,7 +51,7 @@
                     <ul class=" dropdown menu logout">
                         <li><a href="/admin/logout">Sign-Out</a></li>
                         <li><a href="/admin/profile">Profile</a></li>
-                        <li><a href="#" data-toggle="offCanvas">Add Item</a></li>
+                        <li><a href="#" data-toggle="addItem">Add Item</a></li>
                         <!-- <li><a href="#" class="search">Search</a></li> -->
                         <li>
                             <a href="#">
