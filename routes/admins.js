@@ -129,6 +129,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                         header:cfc(category) + ' Results',
                         pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
+                        'category':true
                     });            
                 },
                 function(err){
@@ -145,6 +146,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                         header:cfc(category) + ' Results',
                         pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
+                        'category':true
                     });            
                 },
                 function(err){
@@ -161,6 +163,7 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                         header:cfc(category) + ' Results',
                         pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
+                        'category':true
                     });            
                 },
                 function(err){
@@ -196,7 +199,7 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
                 records = 'Found ' + results.length + ' records';
                 break;
         }
-           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken(), header:records});
+           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken(), header:records, 'default':true});
        } else {
            res.redirect('/admin/profile');
        }
@@ -210,7 +213,7 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
 // search by id
 router.get('/search/:id', isLoggedIn, csrfProtection, function(req, res, next){
      couch.get(dbName,req.params.id).then(({data, headers, status}) => {
-        res.render('admin/searched', {results:data, pageTitle:'Search', admin:true, csrfToken:req.csrfToken(), header:'Found record ' + data.title});
+        res.render('admin/searched', {results:data, pageTitle:'Search', admin:true, csrfToken:req.csrfToken(), header:'Found record ' + data.title, 'id':true});
     }, err => {
         console.log(err);
         res.redirect('/admin/profile');

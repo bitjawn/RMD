@@ -51,7 +51,19 @@
                     <ul class=" dropdown menu logout">
                         <li><a href="/admin/logout">Sign-Out</a></li>
                         <li><a href="#" data-toggle="offCanvas">Add Item</a></li>
-                        <li><a href="#" class="search">Search</a></li>
+                        <!-- <li><a href="#" class="search">Search</a></li> -->
+                        <li>
+                            <a href="#">
+                                <div id="searcher" class="panel-collapse collapse clearfix">
+                                    <form method="post" action="/admin/search">
+                                        <div class="row">
+                                            <input class="input-group-field small-6 columns" type="text" name="keyword" placeholder="Search" required>
+                                            <button class="button small-3 columns">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 {/login}
             </div>
