@@ -126,8 +126,8 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 function(data, headers, status) { 
                     res.render('admin/searched', {
                         results:data.data.rows,
-                        category:cfc(category),
-                        pageTitle:cfc('Menu'),
+                        header:cfc(category) + ' Results',
+                        pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
                     });            
                 },
@@ -142,8 +142,8 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 function(data, headers, status) {  
                     res.render('admin/searched', {
                         results:data.data.rows,
-                        category:cfc(category),
-                        pageTitle:cfc('Menu'),
+                        header:cfc(category) + ' Results',
+                        pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
                     });            
                 },
@@ -158,8 +158,8 @@ router.get('/search/:category', isLoggedIn, csrfProtection, function(req, res) {
                 function(data, headers, status) {  
                     res.render('admin/searched', {
                         results:data.data.rows,
-                        category:cfc(category),
-                        pageTitle:cfc('Menu'),
+                        header:cfc(category) + ' Results',
+                        pageTitle:cfc('Search'),
                         csrfToken: req.csrfToken(),
                     });            
                 },
@@ -186,20 +186,31 @@ router.post('/search', isLoggedIn, csrfProtection, function(req, res){
                }
        }       
        if (results.length > 0) {
-           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken()});
+        var records = '';
+        switch (results.length) {
+            case 1:
+                records = 'Found 1 record';
+                break;
+
+            default:
+                records = 'Found ' + results.length + ' records';
+                break;
+        }
+           res.render('admin/searched',{results:results, pageTitle:'Search Results', csrfToken:req.csrfToken(), header:records});
        } else {
            res.redirect('/admin/profile');
        }
     },
     function(err){
-        res.send(err);
+        console(err);
+        res.redirect('/admin/profile');
     });    
 });
 
 // search by id
 router.get('/search/:id', isLoggedIn, csrfProtection, function(req, res, next){
      couch.get(dbName,req.params.id).then(({data, headers, status}) => {
-        res.render('admin/searched', {results:data, pageTitle:'Record', admin:true, csrfToken:req.csrfToken()});
+        res.render('admin/searched', {results:data, pageTitle:'Search', admin:true, csrfToken:req.csrfToken(), header:'Found record ' + data.title});
     }, err => {
         console.log(err);
         res.redirect('/admin/profile');
