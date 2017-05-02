@@ -73,4 +73,61 @@
             {/results}
         <!-- </div> -->
     </div>
+
+    <div class="reveal row" id="addItem" data-reveal data-close-on-click="true" data-animation-in="spin-in" data-animation-out="spin-out">
+        <h4>Add New Item</h4>
+        <div class="card-section">
+            <form class="admin-add-item-form" method="post" action="/admin/add">
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Title</i>
+                    </span>
+                    <input type="text" class="input-group-field" name="title" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Category</i>
+                    </span>
+                    <input type="text" class="input-group-field" name="category" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Hours</i>
+                    </span>
+                    <input type="text" class="input-group-field" name="duration" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Description</i>
+                    </span>
+                    <textarea class="input-group-field" name="description" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Ingredients</i>
+                    </span>
+                    <textarea class="input-group-field" name="ingredients" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-edit" aria-hidden="true"> Image Source</i>
+                    </span>
+                    <input type="text" class="input-group-field" name="source" required>
+                </div>
+
+                <div class="input-group-button clearfix">
+                    <input type="submit" class="button primary  editor-form-button-left-floater" value="Submit">
+                </div>
+            </form>
+        </div>        
+        <img src="/graphics/background.png" class="new-item">
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 {/body}
